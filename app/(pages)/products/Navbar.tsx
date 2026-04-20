@@ -92,7 +92,7 @@ const Navbar = ({ searchValue = "", onSearchChange }: NavbarProps) => {
             Login
           </Link>
         ) : (
-          <Link href="/profile" className="text-sm sm:text-base">
+          <Link href="/profile" prefetch={false} className="text-sm sm:text-base">
             Welcome {user.name}
           </Link>
         )}

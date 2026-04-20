@@ -15,11 +15,11 @@ const ProductCard = dynamic(() => import("./ProductCard"), {
 });
 
 const Products = () => {
-  const { data, isLoading, error, isError } = UseProducts();
+  const { data, isLoading, isFetching, error, isError } = UseProducts();
   const [searchValue, setSearchValue] = useState("");
   const deferredSearchValue = useDeferredValue(searchValue);
 
-  if (isLoading) {
+  if ((isLoading && !data) || !data?.products) {
     return (
       <div className="flex items-center w-full">
         <h1 className="text-4xl font-bold w-2xl text-gray-600">Loading....</h1>
@@ -47,6 +47,11 @@ const Products = () => {
           searchValue={searchValue}
           onSearchChange={setSearchValue}
         />
+        {isFetching ? (
+          <div className="px-4 pt-4 text-sm font-medium text-slate-500">
+            Refreshing products...
+          </div>
+        ) : null}
         <ProductCarousel
           images={[slide1.src, slide2.src, slide3.src, slide4.src]}
         />

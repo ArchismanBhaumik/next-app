@@ -38,7 +38,7 @@ const ProfilePage = () => {
 
       dispatch(clearUser());
       toast.success("Logged out successfully");
-      router.push("/login");
+      router.replace("/login");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Logout failed");
     } finally {
@@ -48,8 +48,6 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#e0f2fe,_#ffffff_45%,_#f8fafc_100%)] text-slate-900">
-      <Navbar />
-
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8">
         <section className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 shadow-[0_20px_60px_rgba(15,23,42,0.10)] backdrop-blur">
           <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">

@@ -47,7 +47,6 @@ const LoginComponent = () => {
       <h1 className="text-2xl font-bold mb-4">Login</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* Email */}
         <div>
           <input
             type="email"
@@ -59,8 +58,6 @@ const LoginComponent = () => {
             <p className="text-red-500 text-sm">{errors.email.message}</p>
           )}
         </div>
-
-        {/* Password */}
         <div>
           <input
             type="password"
@@ -75,8 +72,6 @@ const LoginComponent = () => {
             <p className="text-red-500 text-sm">{errors.password.message}</p>
           )}
         </div>
-
-        {/* Button */}
         <button
           type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
